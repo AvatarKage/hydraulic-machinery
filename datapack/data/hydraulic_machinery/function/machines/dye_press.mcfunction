@@ -4,3 +4,4 @@ function hydraulic_machinery:machines/dye_press/check/glazed_terracotta
 function hydraulic_machinery:machines/dye_press/check/stained_glass
 function hydraulic_machinery:machines/dye_press/check/terracotta
 function hydraulic_machinery:machines/dye_press/check/wool
+function hydraulic_machinery:machines/dye_press/check/sand
