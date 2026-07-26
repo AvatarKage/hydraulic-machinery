@@ -1,0 +1,22 @@
+{
+    "criteria": {
+        "placed_iron": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "location": [
+                    {
+                        "condition": "minecraft:location_check",
+                        "predicate": {
+                            "block": {
+                                "blocks": "minecraft:diamond_block"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "hydraulic_machinery:management/raycast/init/diamond_block"
+    }
+}

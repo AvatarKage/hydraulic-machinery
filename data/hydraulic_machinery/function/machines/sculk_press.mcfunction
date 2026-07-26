@@ -1,0 +1,1 @@
+function hydraulic_machinery:machines/sculk_press/check/sculk_replaceable

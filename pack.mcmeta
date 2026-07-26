@@ -1,0 +1,8 @@
+{
+    "pack": {
+    	"pack_format": 107,
+        "description": "Turn pistons into industrial machines with hydraulic presses, automation, and configurable vanilla-friendly mechanics.",
+        "min_format": [107, 1],
+    	"max_format": 107 
+    }
+}

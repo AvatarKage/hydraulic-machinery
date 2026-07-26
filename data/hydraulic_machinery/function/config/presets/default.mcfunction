@@ -1,0 +1,26 @@
+function hydraulic_machinery:config/enable/anvil_requirement
+function hydraulic_machinery:config/enable/fuel_requirement
+function hydraulic_machinery:config/enable/special_recipes
+
+function hydraulic_machinery:config/enable/stonecutter_machine
+function hydraulic_machinery:config/enable/stonecutter_break_all_blocks
+function hydraulic_machinery:config/enable/stonecutter_damage_entities
+function hydraulic_machinery:config/enable/dispenser_machine
+function hydraulic_machinery:config/enable/hologram_machine
+
+function hydraulic_machinery:config/enable/hydraulic_press
+function hydraulic_machinery:config/enable/heat_press
+function hydraulic_machinery:config/enable/wet_press
+function hydraulic_machinery:config/enable/dye_press
+function hydraulic_machinery:config/enable/wax_press
+function hydraulic_machinery:config/enable/sculk_press
+function hydraulic_machinery:config/enable/freeze_press
+function hydraulic_machinery:config/enable/bone_press
+function hydraulic_machinery:config/enable/mushroom_press
+function hydraulic_machinery:config/enable/wheat_press
+function hydraulic_machinery:config/enable/combustion_press
+
+tellraw @s [\
+    {"color":"#e77b57","text":"[Hydraulic Machinery] "}, \
+    {"text":"Default preset configured!","bold":true}\
+]

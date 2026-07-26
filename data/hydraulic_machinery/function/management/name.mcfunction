@@ -1,0 +1,2 @@
+function hydraulic_machinery:management/name/check
+function hydraulic_machinery:management/name/revoke

@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+        "#hydraulic_machinery:solid_copper_blocks",
+        "minecraft:iron_block",
+        "minecraft:gold_block",
+        "minecraft:diamond_block",
+        "minecraft:netherite_block"
+    ]
+}

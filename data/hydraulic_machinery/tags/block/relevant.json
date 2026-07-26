@@ -1,0 +1,20 @@
+{
+    "replace": false,
+    "values": [
+        "#hydraulic_machinery:to_air_blocks",
+        "#hydraulic_machinery:to_fire_blocks",
+        "#hydraulic_machinery:to_dirt_blocks",
+        "#hydraulic_machinery:to_cobblestone_blocks",
+        "#hydraulic_machinery:to_gravel_blocks",
+        "#hydraulic_machinery:mushrooms",
+        "#hydraulic_machinery:tier_blocks",
+        "#hydraulic_machinery:glass_blocks",
+        "#minecraft:concrete",
+        "#minecraft:glazed_terracotta",
+        "#minecraft:sand",
+        "#minecraft:dirt",
+        "#minecraft:ice",
+        "minecraft:sandstone",
+        "minecraft:red_sandstone"
+    ]
+}

@@ -1,0 +1,2 @@
+$setblock ~ ~ ~ $(block)
+kill @s

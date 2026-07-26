@@ -1,0 +1,26 @@
+function hydraulic_machinery:machines/wet_press/check/dirt
+function hydraulic_machinery:machines/wet_press/check/sponge
+function hydraulic_machinery:machines/wet_press/check/dead_brain_coral_block
+function hydraulic_machinery:machines/wet_press/check/dead_bubble_coral_block
+function hydraulic_machinery:machines/wet_press/check/dead_fire_coral_block
+function hydraulic_machinery:machines/wet_press/check/dead_horn_coral_block
+function hydraulic_machinery:machines/wet_press/check/dead_tube_coral_block
+function hydraulic_machinery:machines/wet_press/check/magma_block
+function hydraulic_machinery:machines/wet_press/check/mud
+
+function hydraulic_machinery:machines/wet_press/check/concrete/white_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/light_gray_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/gray_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/black_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/brown_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/red_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/orange_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/yellow_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/lime_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/green_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/cyan_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/light_blue_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/blue_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/purple_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/magenta_concrete_powder
+function hydraulic_machinery:machines/wet_press/check/concrete/pink_concrete_powder

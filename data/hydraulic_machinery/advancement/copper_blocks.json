@@ -1,0 +1,22 @@
+{
+    "criteria": {
+        "placed_iron": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "location": [
+                    {
+                        "condition": "minecraft:location_check",
+                        "predicate": {
+                            "block": {
+                                "blocks": "#hydraulic_machinery:solid_copper_blocks"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "hydraulic_machinery:management/raycast/init/copper_blocks"
+    }
+}

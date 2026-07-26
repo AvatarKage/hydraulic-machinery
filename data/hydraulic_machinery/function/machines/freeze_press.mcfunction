@@ -1,0 +1,3 @@
+function hydraulic_machinery:machines/freeze_press/check/water
+function hydraulic_machinery:machines/freeze_press/check/ice
+function hydraulic_machinery:machines/freeze_press/check/packed_ice

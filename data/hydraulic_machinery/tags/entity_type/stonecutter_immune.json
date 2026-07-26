@@ -1,0 +1,24 @@
+{
+    "replace": false,
+    "values": [
+        "#minecraft:impact_projectiles",
+        "#minecraft:boat",
+        "minecraft:minecart",
+        "minecraft:tnt_minecart",
+        "minecraft:chest_minecart",
+        "minecraft:hopper_minecart",
+        "minecraft:furnace_minecart",
+        "minecraft:spawner_minecart",
+        "minecraft:command_block_minecart",
+        "minecraft:mannequin",
+        "minecraft:armor_stand",
+        "minecraft:item",
+        "minecraft:painting",
+        "minecraft:item_frame",
+        "minecraft:glow_item_frame",
+        "minecraft:item_display",
+        "minecraft:block_display",
+        "minecraft:experience_orb",
+        "minecraft:text_display"
+    ]
+}
