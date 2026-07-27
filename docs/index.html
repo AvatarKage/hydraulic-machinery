@@ -50,8 +50,8 @@
                     to bottom, rgba(18, 16, 14, 0.5) 0%, 
                     var(--dark) 12%
                 ),
-                url('images/avatarkage_001.png') center/cover fixed;
-            font-family: 'Inter', sans-serif;
+                url("images/avatarkage_001.png") center/cover fixed;
+            font-family: "Inter", sans-serif;
             color: var(--text);
             line-height: 1.6;
         }
@@ -209,6 +209,26 @@
         .stat-box p {
             font-size: 0.9rem;
             color: var(--muted);
+        }
+        
+       .assembly-tags {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 24px;
+        }
+
+        .assembly-tags .tag-btn {
+            flex: 1 1 auto;
+            min-width: fit-content;
+            padding: 8px 12px;
+            white-space: nowrap;
+            text-align: center;
+            box-sizing: border-box;
         }
 
         .guide-grid {
@@ -586,7 +606,7 @@
         }
 
         code {
-            font-family: 'Consolas', 'Fira Code', monospace;
+            font-family: "Consolas", "Fira Code", monospace;
             font-size: 0.9em;
             font-weight: 600;
             background: #111113;
@@ -770,28 +790,40 @@
 
         <h2 class="section-title">Assembly Guide</h2>
 
+        <div class="assembly-tags">
+            <button class="tag-btn active" data-tier="hydraulic-assembly">HYDRAULIC</button>
+            <button class="tag-btn" data-tier="heat-assembly">HEAT</button>
+            <button class="tag-btn" data-tier="wet-assembly">WET</button>
+            <button class="tag-btn" data-tier="dye-assembly">DYE</button>
+            <button class="tag-btn" data-tier="wax-assembly">WAX</button>
+            <button class="tag-btn" data-tier="sculk-assembly">SCULK</button>
+            <button class="tag-btn" data-tier="freeze-assembly">FREEZE</button>
+            <button class="tag-btn" data-tier="mushroom-assembly">MUSHROOM</button>
+            <button class="tag-btn" data-tier="wheat-assembly">WHEAT</button>
+        </div>
+
         <div class="panel guide-grid">
             <div class="build-tower">
                 <div></div>
-                <div class="slot" id="storage-slot" data-tooltip="Barrel"><img src="images/minecraft/barrel.png" alt="Chest"></div>
+                <div class="slot" id="fuel-slot" data-tooltip="Coal"><img src="images/minecraft/coal.png"></div>
                 <div></div>
                 <div></div>
-                <div class="slot" data-tooltip="Hopper"><img src="images/minecraft/hopper.png" alt="Hopper"></div>
+                <div class="slot" id="storage-slot" data-tooltip="Hopper"><img src="images/minecraft/hopper.png"></div>
                 <div></div>
-                <div class="slot" id="frame-slot" data-tooltip="Item Frame"><img src="images/minecraft/item_frame.png" alt="Piston"></div>
-                <div class="slot" data-tooltip="Sticky Piston"><img src="images/minecraft/sticky_piston.png" alt="Piston"></div>
-                <div class="slot" id="sign-slot" data-tooltip="Oak Sign"><img src="images/minecraft/oak_sign.png" alt="Piston"></div>
+                <div class="slot" id="frame-slot" data-tooltip="Item Frame"><img src="images/minecraft/item_frame.png"></div>
+                <div class="slot" data-tooltip="Sticky Piston"><img src="images/minecraft/sticky_piston.png"></div>
+                <div class="slot" id="sign-slot" data-tooltip="Oak Sign"><img src="images/minecraft/oak_sign.png"></div>
                 <div></div>
-                <div class="slot" id="machine-slot" data-tooltip="Copper Block"><img src="images/minecraft/copper_block.png" alt="Copper Block"></div>
+                <div class="slot" id="machine-slot" data-tooltip="Copper Block"><img src="images/minecraft/copper_block.png"></div>
                 <div></div>
                 <div></div>
                 <div class="slot air" data-tooltip="Air"></div>
                 <div></div>
                 <div></div>
-                <div class="slot" id="input-slot" data-tooltip="Stone"><img src="images/minecraft/stone.png" alt="Stone"></div>
+                <div class="slot" id="input-slot" data-tooltip="Stone"><img src="images/minecraft/stone.png"></div>
                 <div></div>
                 <div></div>
-                <div class="slot" data-tooltip="Anvil"><img src="images/minecraft/anvil.png" alt="Anvil"></div>
+                <div class="slot" data-tooltip="Anvil"><img src="images/minecraft/anvil.png"></div>
             </div>
 
             <div class="guide-steps">
@@ -942,7 +974,7 @@
             </div>
             <div class="faq-item">
                 <h4>How do I install this on a server?</h4>
-                <p>Drop the downloaded zip folder into your server's <code>world/datapacks</code> directory and run <code>/reload</code>.</p>
+                <p>Drop the downloaded zip folder into your server"s <code>world/datapacks</code> directory and run <code>/reload</code>.</p>
             </div>
         </div>
 
@@ -4217,8 +4249,6 @@
             hay_block: { name: "Hay Bale", img: "images/minecraft/hay_block.png" }
         };
 
-        let recipeBlocks = [];
-
         document.addEventListener("DOMContentLoaded", () => {
             const recipesGrid = document.getElementById("recipes-grid");
             const searchInput = document.getElementById("recipe-search");
@@ -4250,10 +4280,6 @@
                         const matchesTier = currentTier === "all" || 
                             (Array.isArray(item.type) ? item.type.includes(currentTier) : item.type === currentTier);
 
-                        if (matchesQuery && matchesTier) {
-                            recipeBlocks.push(...inputs);
-                        }
-
                         return matchesQuery && matchesTier;
                     })
                     .sort((a, b) => {
@@ -4267,10 +4293,6 @@
 
                         return getPrimaryName(a.output).localeCompare(getPrimaryName(b.output));
                     });
-
-                recipeBlocks = Array.from(
-                    new Map(recipeBlocks.map(block => [block.name, block])).values()
-                ).sort((a, b) => a.name.localeCompare(b.name));
 
                 if (searchInput) {
                     searchInput.placeholder = `Search ${filtered.length} recipes...`;
@@ -4291,7 +4313,7 @@
                     const initialInput = inputs[0];
                     const initialOutput = outputs[0];
 
-                    let tierRatesHTML = '<div class="tier-rates">';
+                    let tierRatesHTML = `<div class="tier-rates">`;
                     if (typeof machineMeta !== "undefined") {
                         Object.keys(machineMeta).forEach(tKey => {
                             if (recipe.rates && recipe.rates[tKey]) {
@@ -4304,7 +4326,7 @@
                             }
                         });
                     }
-                    tierRatesHTML += '</div>';
+                    tierRatesHTML += "</div>";
 
                     const cardId = `recipe-card-${index}`;
 
@@ -4390,8 +4412,42 @@
 
             renderRecipes();
 
-            const machineBlocks = Object.values(machineMeta);
-
+            const machineSources = {
+                hydraulic: [
+                    machineMeta.copper,
+                    machineMeta.iron,
+                    machineMeta.gold,
+                    machineMeta.diamond,
+                    machineMeta.netherite
+                ],
+                heat: [
+                    machineMeta.magma_block
+                ],
+                wet: [
+                    machineMeta.wet_sponge
+                ],
+                dye: [
+                    machineMeta.white_wool
+                ],
+                wax: [
+                    machineMeta.honeycomb_block
+                ],
+                sculk: [
+                    machineMeta.sculk
+                ],
+                freeze: [
+                    machineMeta.ice,
+                    { name: "Packed Ice", img: "images/minecraft/packed_ice.png" },
+                    { name: "Blue Ice", img: "images/minecraft/blue_ice.png" },
+                ],
+                mushroom: [
+                    machineMeta.mushroom_block
+                ],
+                wheat: [
+                    machineMeta.hay_block
+                ]
+            };
+  
             const frameBlocks = [
                 { name: "Item Frame", img: "images/minecraft/item_frame.png" },
                 { name: "Glow Item Frame", img: "images/minecraft/glow_item_frame.png" },
@@ -4418,46 +4474,201 @@
                 { name: "Pale Oak Hanging Sign", img: "images/minecraft/pale_oak_hanging_sign.png" }
             ];
 
-            const storageBlocks = [
-                { name: "Barrel", img: "images/minecraft/barrel.png" },
-                { name: "Chest", img: "images/minecraft/chest.png" },
-                { name: "Chest Minecart", img: "images/minecraft/chest_minecart.png" },
-                { name: "Oak Boat Chest", img: "images/minecraft/oak_chest_boat.png" },
-                { name: "Copper Chest", img: "images/minecraft/copper_chest.png" },
-            ];
+            const fuelSources = {
+                hydraulic: [
+                    { name: "Coal (16 uses)", img: "images/minecraft/coal.png" },
+                    { name: "Charcoal (16 uses)", img: "images/minecraft/charcoal.png" },
+                    { name: "Block of Coal (144 uses)", img: "images/minecraft/coal_block.png" },
+                ],
+                heat: [
+                    { name: "Blaze Rod (32 uses)", img: "images/minecraft/blaze_rod.png" },
+                    { name: "Lava (200 uses)", img: "images/minecraft/lava_bucket.png" },
+                ],
+                wet: [
+                    { name: "Water (200 uses)", img: "images/minecraft/water_bucket.png" },
+                ],
+                dye: [
+                    { name: "White Dye (16 uses)", img: "images/minecraft/white_dye.png" },
+                    { name: "Light Gray Dye (16 uses)", img: "images/minecraft/light_gray_dye.png" },
+                    { name: "Gray Dye (16 uses)", img: "images/minecraft/gray_dye.png" },
+                    { name: "Black Dye (16 uses)", img: "images/minecraft/black_dye.png" },
+                    { name: "Brown Dye (16 uses)", img: "images/minecraft/brown_dye.png" },
+                    { name: "Red Dye (16 uses)", img: "images/minecraft/red_dye.png" },
+                    { name: "Orange Dye (16 uses)", img: "images/minecraft/orange_dye.png" },
+                    { name: "Yellow Dye (16 uses)", img: "images/minecraft/yellow_dye.png" },
+                    { name: "Lime Dye (16 uses)", img: "images/minecraft/lime_dye.png" },
+                    { name: "Green Dye (16 uses)", img: "images/minecraft/green_dye.png" },
+                    { name: "Cyan Dye (16 uses)", img: "images/minecraft/cyan_dye.png" },
+                    { name: "Light Blue Dye (16 uses)", img: "images/minecraft/light_blue_dye.png" },
+                    { name: "Blue Dye (16 uses)", img: "images/minecraft/blue_dye.png" },
+                    { name: "Purple Dye (16 uses)", img: "images/minecraft/purple_dye.png" },
+                    { name: "Magenta Dye (16 uses)", img: "images/minecraft/magenta_dye.png" },
+                    { name: "Pink Dye (16 uses)", img: "images/minecraft/pink_dye.png" }
+                ],
+                wax: [
+                    { name: "Honeycomb (2 uses)", img: "images/minecraft/honeycomb.png" },
+                    { name: "Honeycomb Block (8 uses)", img: "images/minecraft/honeycomb_block.png" },
+                ],
+                sculk: [
+                    { name: "Rotten Flesh (10 uses)", img: "images/minecraft/rotten_flesh.png" },
+                ],
+                freeze: [
+                    { name: "Packed Ice (9 uses)", img: "images/minecraft/packed_ice.png" },
+                    { name: "Blue Ice (81 uses)", img: "images/minecraft/blue_ice.png" },
+                ],
+                mushroom: [
+                    { name: "Bonemeal (10 uses)", img: "images/minecraft/bone_meal.png" },
+                ],
+                wheat: [
+                    { name: "Wheat (18 uses)", img: "images/minecraft/wheat.png" },
+                ]
+            };
+
+            const storageSources = {
+                hydraulic: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" }
+                ],
+                heat: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" },
+                    { name: "Lava (infinite)", img: "images/minecraft/lava_bucket.png" }
+                ],
+                wet: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" },
+                    { name: "Water (infinite)", img: "images/minecraft/water_bucket.png" }
+                ],
+                dye: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" }
+                ],
+                wax: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" }
+                ],
+                sculk: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" }
+                ],
+                freeze: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" }
+                ],
+                mushroom: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" }
+                ],
+                wheat: [
+                    { name: "Hopper", img: "images/minecraft/hopper.png" }
+                ]
+            };
+
+            let activeTier = "hydraulic";
 
             let machineIndex = 0;
             let recipeIndex = 0;
             let frameIndex = 0;
             let signIndex = 0;
+            let fuelIndex = 0;
             let storageIndex = 0;
 
-            function updateSlotById(id, itemData) {
-                const slot = document.getElementById(id);
-                if (!slot) return;
+            const recipeSources = {};
 
-                const img = slot.querySelector("img");
-                if (img) {
-                    img.src = itemData.img;
-                    img.alt = itemData.name;
+            function buildRecipeSources() {
+                if (typeof recipesData === "undefined") return;
+
+                // Reset dictionary
+                Object.keys(recipeSources).forEach(key => delete recipeSources[key]);
+
+                recipesData.forEach(recipe => {
+                    const inputs = toArray(recipe.input);
+                    const recipeTypes = toArray(recipe.type);
+
+                    recipeTypes.forEach(tier => {
+                        const cleanTier = tier.replace("-assembly", "");
+
+                        if (!recipeSources[cleanTier]) {
+                            recipeSources[cleanTier] = [];
+                        }
+
+                        inputs.forEach(inputItem => {
+                            const exists = recipeSources[cleanTier].some(item => item.name === inputItem.name);
+                            if (!exists) {
+                                recipeSources[cleanTier].push(inputItem);
+                            }
+                        });
+                    });
+                });
+            }
+
+            tagButtons.forEach(button => {
+                button.addEventListener("click", (e) => {
+                    tagButtons.forEach(btn => btn.classList.remove("active"));
+                    e.currentTarget.classList.add("active");
+
+                    activeTier = e.currentTarget.getAttribute("data-tier").replace("-assembly", "");
+                    
+                    machineIndex = 0;
+                    fuelIndex = 0;
+                    storageIndex = 0;
+                    renderSlots();
+                });
+            });
+
+            function updateSlotsInScope(container, selector, itemData) {
+                if (!itemData) return;
+                const slots = container.querySelectorAll(selector);
+                slots.forEach(slot => {
+                    const img = slot.querySelector("img");
+                    if (img) {
+                        img.src = itemData.img;
+                        img.alt = itemData.name;
+                    }
+                    slot.setAttribute("data-tooltip", itemData.name);
+                });
+            }
+
+            function renderSlots() {
+                const doc = document;
+
+                if (typeof frameBlocks !== "undefined" && frameBlocks.length) {
+                    updateSlotsInScope(doc, "#frame-slot", frameBlocks[frameIndex % frameBlocks.length]);
                 }
-                slot.setAttribute("data-tooltip", itemData.name);
+                if (typeof signBlocks !== "undefined" && signBlocks.length) {
+                    updateSlotsInScope(doc, "#sign-slot", signBlocks[signIndex % signBlocks.length]);
+                }
+
+                const currentRecipeList = recipeSources[activeTier] || [];
+                if (currentRecipeList.length > 0) {
+                    const currentRecipe = currentRecipeList[recipeIndex % currentRecipeList.length];
+                    updateSlotsInScope(doc, "#input-slot", currentRecipe);
+                }
+
+                const currentMachineList = machineSources[activeTier] || [];
+                if (currentMachineList.length > 0) {
+                    const currentMachine = currentMachineList[machineIndex % currentMachineList.length];
+                    updateSlotsInScope(doc, "#machine-slot", currentMachine);
+                }
+
+                const currentFuelList = fuelSources[activeTier] || [];
+                if (currentFuelList.length > 0) {
+                    const currentFuel = currentFuelList[fuelIndex % currentFuelList.length];
+                    updateSlotsInScope(doc, "#fuel-slot", currentFuel);
+                }
+
+                const currentStorageList = storageSources[activeTier] || [];
+                if (currentStorageList.length > 0) {
+                    const currentStorage = currentStorageList[storageIndex % currentStorageList.length];
+                    updateSlotsInScope(doc, "#storage-slot", currentStorage);
+                }
             }
 
             function flipBlocks() {
-                machineIndex = (machineIndex + 1) % machineBlocks.length;
-                recipeIndex = (recipeIndex + 1) % recipeBlocks.length;
-                frameIndex = (frameIndex + 1) % frameBlocks.length;
-                signIndex = (signIndex + 1) % signBlocks.length;
-                storageIndex = (storageIndex + 1) % storageBlocks.length;
+                machineIndex++;
+                recipeIndex++;
+                frameIndex++;
+                signIndex++;
+                fuelIndex++;
+                storageIndex++;
 
-                updateSlotById("machine-slot", machineBlocks[machineIndex]);
-                updateSlotById("input-slot", recipeBlocks[recipeIndex]);
-                updateSlotById("frame-slot", frameBlocks[frameIndex]);
-                updateSlotById("sign-slot", signBlocks[signIndex]);
-                updateSlotById("storage-slot", storageBlocks[storageIndex]);
+                renderSlots();
             }
 
+            buildRecipeSources();
+            renderSlots();
             setInterval(flipBlocks, 1000);
         });
 
