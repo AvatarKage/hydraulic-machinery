@@ -4252,7 +4252,37 @@
         document.addEventListener("DOMContentLoaded", () => {
             const recipesGrid = document.getElementById("recipes-grid");
             const searchInput = document.getElementById("recipe-search");
-            const tagButtons = document.querySelectorAll(".tag-btn");
+            const assemblyButtons = document.querySelectorAll(".assembly-tags .tag-btn");
+            const recipeButtons = document.querySelectorAll(".recipe-tags .tag-btn");
+
+            assemblyButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    assemblyButtons.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    const tierAttr = btn.getAttribute("data-tier");
+                    if (tierAttr) {
+                        activeTier = tierAttr.replace("-assembly", "");
+                        
+                        machineIndex = 0;
+                        recipeIndex = 0;
+                        fuelIndex = 0;
+                        storageIndex = 0;
+                        
+                        renderSlots();
+                    }
+                });
+            });
+
+            recipeButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    recipeButtons.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    currentTier = btn.getAttribute("data-tier");
+                    renderRecipes();
+                });
+            });
 
             let currentQuery = "";
             let currentTier = "all";
@@ -4400,15 +4430,6 @@
                     renderRecipes();
                 });
             }
-
-            tagButtons.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    tagButtons.forEach(b => b.classList.remove("active"));
-                    btn.classList.add("active");
-                    currentTier = btn.getAttribute("data-tier");
-                    renderRecipes();
-                });
-            });
 
             renderRecipes();
 
