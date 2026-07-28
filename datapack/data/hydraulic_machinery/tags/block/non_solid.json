@@ -1,0 +1,16 @@
+{
+    "replace": false,
+    "values": [
+        "#minecraft:leaves",
+        "#minecraft:slabs",
+        "#minecraft:stairs",
+        "#minecraft:wool_carpets",
+        "#hydraulic_machinery:glass_blocks",
+        "minecraft:air",
+        "minecraft:water",
+        "minecraft:copper_grate",
+        "minecraft:exposed_copper_grate",
+        "minecraft:weathered_copper_grate",
+        "minecraft:oxidized_copper_grate"
+    ]
+}
