@@ -6,6 +6,10 @@ execute \
     run kill @s
 
 execute \
+    if score #global hydraulic_machinery.is_hologram_machine_enabled matches 0 \
+    run kill @e[tag=hydraulic_machinery_hologram_label]
+
+execute \
     as @e[type=minecraft:text_display,tag=hydraulic_machinery_hologram_label_level_1] \
     at @s \
     unless block ~ ~-1 ~ minecraft:lectern \
