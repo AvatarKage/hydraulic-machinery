@@ -1,4 +1,5 @@
 execute \
+    if score #global hydraulic_machinery.is_hologram_machine_enabled matches 1 \
     as @e[type=minecraft:armor_stand,tag=hydraulic_machinery_hologram_marker] \
     at @s \
     unless block ~ ~ ~ minecraft:lectern \
