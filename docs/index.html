@@ -848,6 +848,34 @@
             </div>
         </div>
 
+        <div class="panel guide-grid">
+            <div class="build-tower" style="grid-template-rows: repeat(4, 1fr);">
+                <div></div>
+                <div class="slot" data-tooltip="Lectern"><img src="images/minecraft/lectern.png"></div>
+                <div></div>
+                <div></div>
+                <div class="slot air" data-tooltip="Air"></div>
+                <div></div>
+                <div></div>
+                <div class="slot" id="glass-slot" data-tooltip="Glass"><img src="images/minecraft/glass.png"></div>
+                <div></div>
+                <div></div>
+                <div class="slot" data-tooltip="Amethyst Block"><img src="images/minecraft/amethyst_block.png"></div>
+            </div>
+
+            <div class="guide-steps">
+                <h3>Hologram Machine</h3>
+                <p>The hologram machine displays live text from a book placed atop a lectern.</p>
+                
+                <ul class="step-list">
+                    <li>Place an <b>Amethyst Block</b> at the base.</li>
+                    <li>Place any <b>glass</b> or <b>stained glass</b> directly on top of the base.</li>
+                    <li><b>Optional:</b> For every block of <b>open space</b> above the <b>glass block</b>, the hologram text will appear one block higher, up to 4 blocks.</li>
+                    <li>Finish it off by placing a lectern with a filled book.</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="panel">
             <div class="guide-steps">
                 <h3>Stonecutter Machine</h3>
@@ -4577,6 +4605,26 @@
                 ]
             };
 
+            const glassBlocks = [
+                { name: "Glass", img: "images/minecraft/glass.png" },
+                { name: "White Stained Glass", img: "images/minecraft/white_stained_glass.png" },
+                { name: "Light Gray Stained Glass", img: "images/minecraft/light_gray_stained_glass.png" },
+                { name: "Gray Stained Glass", img: "images/minecraft/gray_stained_glass.png" },
+                { name: "Black Stained Glass", img: "images/minecraft/black_stained_glass.png" },
+                { name: "Brown Stained Glass", img: "images/minecraft/brown_stained_glass.png" },
+                { name: "Red Stained Glass", img: "images/minecraft/red_stained_glass.png" },
+                { name: "Orange Stained Glass", img: "images/minecraft/orange_stained_glass.png" },
+                { name: "Yellow Stained Glass", img: "images/minecraft/yellow_stained_glass.png" },
+                { name: "Lime Stained Glass", img: "images/minecraft/lime_stained_glass.png" },
+                { name: "Green Stained Glass", img: "images/minecraft/green_stained_glass.png" },
+                { name: "Cyan Stained Glass", img: "images/minecraft/cyan_stained_glass.png" },
+                { name: "Light Blue Stained Glass", img: "images/minecraft/light_blue_stained_glass.png" },
+                { name: "Blue Stained Glass", img: "images/minecraft/blue_stained_glass.png" },
+                { name: "Purple Stained Glass", img: "images/minecraft/purple_stained_glass.png" },
+                { name: "Magenta Stained Glass", img: "images/minecraft/magenta_stained_glass.png" },
+                { name: "Pink Stained Glass", img: "images/minecraft/pink_stained_glass.png" }
+            ];
+
             let activeTier = "hydraulic";
 
             let machineIndex = 0;
@@ -4585,6 +4633,7 @@
             let signIndex = 0;
             let fuelIndex = 0;
             let storageIndex = 0;
+            let glassIndex = 0;
 
             const recipeSources = {};
 
@@ -4615,20 +4664,6 @@
                 });
             }
 
-            tagButtons.forEach(button => {
-                button.addEventListener("click", (e) => {
-                    tagButtons.forEach(btn => btn.classList.remove("active"));
-                    e.currentTarget.classList.add("active");
-
-                    activeTier = e.currentTarget.getAttribute("data-tier").replace("-assembly", "");
-                    
-                    machineIndex = 0;
-                    fuelIndex = 0;
-                    storageIndex = 0;
-                    renderSlots();
-                });
-            });
-
             function updateSlotsInScope(container, selector, itemData) {
                 if (!itemData) return;
                 const slots = container.querySelectorAll(selector);
@@ -4648,8 +4683,13 @@
                 if (typeof frameBlocks !== "undefined" && frameBlocks.length) {
                     updateSlotsInScope(doc, "#frame-slot", frameBlocks[frameIndex % frameBlocks.length]);
                 }
+
                 if (typeof signBlocks !== "undefined" && signBlocks.length) {
                     updateSlotsInScope(doc, "#sign-slot", signBlocks[signIndex % signBlocks.length]);
+                }
+
+                if (typeof glassBlocks !== "undefined" && glassBlocks.length) {
+                    updateSlotsInScope(doc, "#glass-slot", glassBlocks[glassIndex % glassBlocks.length]);
                 }
 
                 const currentRecipeList = recipeSources[activeTier] || [];
@@ -4684,6 +4724,7 @@
                 signIndex++;
                 fuelIndex++;
                 storageIndex++;
+                glassIndex++;
 
                 renderSlots();
             }
