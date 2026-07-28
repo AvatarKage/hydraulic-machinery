@@ -3,6 +3,10 @@ execute \
     run function hydraulic_machinery:management/cleanup/stonecutter
 
 execute \
+    if score #global hydraulic_machinery.is_hologram_machine_enabled matches 1 \
+    run function hydraulic_machinery:management/cleanup/hologram
+
+execute \
     if score #global hydraulic_machinery.is_hydraulic_press_enabled matches 1 \
     run function hydraulic_machinery:management/cleanup/check/hydraulic_press
 

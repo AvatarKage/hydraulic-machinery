@@ -36,20 +36,25 @@ execute \
     if score #global hydraulic_machinery.is_debug matches 1 \
     as @e[type=minecraft:text_display,tag=hydraulic_machinery_debug_label] \
     at @s \
-    unless entity @e[type=minecraft:armor_stand,tag=hydraulic_machinery_marker,tag=!hydraulic_machinery_stonecutter_marker,distance=..3] \
+    unless entity @e[\
+        type=minecraft:armor_stand,\
+        tag=hydraulic_machinery_marker,\
+        tag=!hydraulic_machinery_stonecutter_marker, \
+        tag=!hydraulic_machinery_hologram_marker, \
+        distance=..3 \
+    ] \
     run kill @s
 
 execute \
     if score #global hydraulic_machinery.is_debug matches 0 \
     run kill @e[tag=hydraulic_machinery_debug_label]
 
-# DEVELOPER ONLY
-#execute \
-#    if score #global hydraulic_machinery.is_debug matches 1 \
-#    as @e[type=minecraft:armor_stand,tag=hydraulic_machinery_marker] \
-#    run data merge entity @s {Invisible:0b,CustomNameVisible:0b}
+execute \
+    if score #global hydraulic_machinery.is_debug matches 1 \
+    as @e[type=minecraft:armor_stand,tag=hydraulic_machinery_marker] \
+    run data merge entity @s {Invisible:0b,CustomNameVisible:0b}
 
-#execute \
-#    if score #global hydraulic_machinery.is_debug matches 0 \
-#    as @e[type=minecraft:armor_stand,tag=hydraulic_machinery_marker] \
-#    run data merge entity @s {Invisible:1b,CustomNameVisible:0b}
+execute \
+    if score #global hydraulic_machinery.is_debug matches 0 \
+    as @e[type=minecraft:armor_stand,tag=hydraulic_machinery_marker] \
+    run data merge entity @s {Invisible:1b,CustomNameVisible:0b}

@@ -11,6 +11,13 @@ execute \
     run function hydraulic_machinery:machines/dispenser
 
 execute \
+    if score #global hydraulic_machinery.is_hologram_machine_enabled matches 1 \
+    as @e[tag=hydraulic_machinery_hologram_marker] \
+    at @s \
+    if block ~ ~ ~ minecraft:lectern \
+    run function hydraulic_machinery:machines/hologram/manage_text
+
+execute \
     if score #global hydraulic_machinery.is_hydraulic_press_enabled matches 1 \
     run function hydraulic_machinery:machines/hydraulic_press
 
@@ -57,22 +64,3 @@ execute \
     at @s \
     if block ~ ~1 ~ minecraft:sticky_piston[facing=down,extended=false] \
     run tag @s remove hydraulic_machinery_active
-
-# DEVELOPER ONLY
-#execute \
-#    unless entity @e[type=minecraft:text_display,tag=test_label,limit=1] \
-#    run summon minecraft:text_display 0 -59 0 { \
-#    Tags:["test_label"], \
-#    text:[ \
-#        {"text":"[Hydraulic Machinery]","color":"gray"}, \
-#        {"text":"\n"}, \
-#        {"text":"Hydraulic Press","color":"yellow","bold":true} \
-#    ], \
-#   billboard:"center", \
-#   background:0, \
-#   shadow:1b \
-#}
-
-#execute \
-#    as @e[type=minecraft:text_display,tag=test_label] \
-#    run tp @s 0 -59 0
