@@ -1,4 +1,10 @@
 execute \
+    as @e[type=minecraft:armor_stand,tag=hydraulic_machinery_hologram_marker] \
+    at @s \
+    unless block ~ ~ ~ minecraft:lectern \
+    run kill @s
+
+execute \
     as @e[type=minecraft:text_display,tag=hydraulic_machinery_hologram_label_level_1] \
     at @s \
     unless block ~ ~-1 ~ minecraft:lectern \
