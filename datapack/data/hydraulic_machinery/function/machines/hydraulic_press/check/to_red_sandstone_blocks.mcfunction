@@ -9,10 +9,10 @@ execute \
     if block ~ ~-2 ~ #hydraulic_machinery:to_red_sandstone_blocks \
     unless entity @e[\
         type=item_frame,limit=1,sort=nearest,dx=-1,dy=2,dz=-1,distance=..3, \
-        nbt={Item:{id:"minecraft:stone"}}\
+        nbt={Item:{id:"minecraft:red_sand"}}\
     ] \
     unless entity @e[\
         type=glow_item_frame,limit=1,sort=nearest,dx=-1,dy=2,dz=-1,distance=..3, \
-        nbt={Item:{id:"minecraft:stone"}}\
+        nbt={Item:{id:"minecraft:red_sand"}}\
     ] \
     run function hydraulic_machinery:machines/hydraulic_press/result/red_sandstone
