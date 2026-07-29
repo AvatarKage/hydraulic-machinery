@@ -27,6 +27,7 @@
         "#minecraft:dirt",
         "#minecraft:ice",
         "minecraft:sandstone",
-        "minecraft:red_sandstone"
+        "minecraft:red_sandstone",
+        "minecraft:gravel"
     ]
 }
