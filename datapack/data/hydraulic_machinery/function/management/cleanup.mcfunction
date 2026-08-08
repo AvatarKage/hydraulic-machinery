@@ -2,6 +2,10 @@ execute \
     if score #global hydraulic_machinery.is_stonecutter_machine_enabled matches 1 \
     run function hydraulic_machinery:management/cleanup/stonecutter
 
+execute \
+    if score #global hydraulic_machinery.is_dispenser_machine_enabled matches 1 \
+    run function hydraulic_machinery:management/cleanup/dispenser
+
 function hydraulic_machinery:management/cleanup/hologram
 
 execute \
